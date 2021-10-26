@@ -27,7 +27,7 @@ frmGorev.onsubmit = function(event){
 
 
 function Listele(){
-    
+    gorevler.sort((g1,g2) => (g1.yapildi-g2.yapildi));
     ulListe.innerHTML="";
     for(const gorev of gorevler){
         const li = document.createElement("li");
