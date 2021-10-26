@@ -1,3 +1,29 @@
-.yapildi{
+body{
+    padding: 10px 20px;
+}
+
+
+
+ul.liste{
+    list-style: none;
+    padding: 0;
+}
+
+ul.liste>li{
+    display: flex;
+    padding: 10px 5px;
+}
+ul.liste > li.yapildi > span{
     text-decoration: line-through;
+}
+
+ul.liste> li > button{
+    margin-left: auto;
+}
+
+ul.liste > li:nth-child(odd){
+    background-color: #eee;
+}
+ul.liste>li:hover{    
+    background-color: #ccc;
 }
