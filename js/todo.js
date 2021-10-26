@@ -1,14 +1,5 @@
-//Ornek data
-let gorevler = [
-    {
-        baslik:"Okula git",
-        yapildi: true
-    },
-    {
-        baslik:"Alışveriş yap",
-        yapildi: false
-    }
-];
+
+let gorevler = [];
 
 const ulListe = document.getElementById("liste");
 const frmGorev = document.getElementById("gorevForm");
@@ -21,6 +12,7 @@ frmGorev.onsubmit = function(event){
         yapildi: false
     }
     gorevler.push(yeniGorev)
+    kaydet();
     Listele();
     this.reset();
 }
@@ -58,12 +50,25 @@ function sileTiklandiginda(event){
     const li = this.parentElement;
     const indeks = gorevler.indexOf(li.gorev);
     gorevler.splice(indeks,1);
+    kaydet();
     Listele();
 }
 function durumDegistiginde(event){
     const gorev = this.parentElement.gorev;
     gorev.yapildi = this.checked;
+    kaydet();
     Listele();
 }
 
+function oku(){
+    const json = localStorage["gorevler"];
+    gorevler = JSON.parse(json);
+}
+
+function kaydet(){
+    const json= JSON.stringify(gorevler);
+    localStorage["gorevler"] = json;
+}
+
+oku();
 Listele();
