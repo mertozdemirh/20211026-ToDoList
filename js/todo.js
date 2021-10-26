@@ -43,7 +43,7 @@ function Listele(){
         cbox.setAttribute("type","checkbox");
 
         const btnSil = document.createElement("button");
-        btnSil.onsubmit=sileTiklandiginda;
+        btnSil.onclick=sileTiklandiginda;
         btnSil.textContent="SİL";
 
         li.append(span);
@@ -54,7 +54,11 @@ function Listele(){
 }
 
 function sileTiklandiginda(event){
-    console.log("sile tıklandı.")
+  
+    const li = this.parentElement;
+    const indeks = gorevler.indexOf(li.gorev);
+    gorevler.splice(indeks,1);
+    Listele();
 }
 function durumDegistiginde(event){
     const gorev = this.parentElement.gorev;
